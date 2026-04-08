@@ -2,7 +2,7 @@
 // Grade gets everything from Student via 'extends'
 import Student from './school/Student.js';
 
-class Grade {
+export default class Grade {
     // รับ Object ของนักเรียนและวิชาเข้ามา พร้อมคะแนนเริ่มต้น (ถ้าไม่ใส่จะให้เป็น 0)
     constructor(student, course, score = 0) {
         this.student = student; // เก็บ Object Student
