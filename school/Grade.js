@@ -1,13 +1,9 @@
 class Grade {
-  constructor(student, course, score = 0) {
+  constructor(student, course, score) {
     this.student = student;
     this.course = course;
     this.score = score;
-    this.grade = this.calculateGrade(score);
-
-    if (this.student && Array.isArray(this.student.grades)) {
-      this.student.grades.push(this);
-    }
+    this.grade = this.calculateGrade(score); //เรียกใช้ฟังก์ชันคำนวณเกรด
   }
 
   calculateGrade(score) {
@@ -18,19 +14,10 @@ class Grade {
     return "F";
   }
 
-  updateScore(newScore) {
-    this.score = newScore;
-    this.grade = this.calculateGrade(newScore);
-    console.log(
-      `${this.student.name} got ${this.score} points in ${this.course.courseName}.`,
-    );
-  }
-
   showGrade() {
     console.log(
-      `Student: ${this.student.name} | Course: ${this.course.courseName} | Score: ${this.score} | Grade: ${this.grade}`,
+      `📊 ผลการเรียน: ${this.student.name} | วิชา ${this.course.courseName} | คะแนน: ${this.score} | เกรด: ${this.grade}`,
     );
   }
 }
-
 module.exports = Grade;

@@ -6,23 +6,9 @@ class Course {
   }
 
   showCourseInfo() {
-    console.log("----- Course Information -----");
-    console.log("Course ID:", this.courseId);
-    console.log("Course Name:", this.courseName);
-    console.log("Credits:", this.credits);
-  }
-
-  updateCourse(newCourseName, newCredits) {
-    if (newCourseName) {
-      this.courseName = newCourseName;
-    }
-
-    if (newCredits) {
-      this.credits = newCredits;
-    }
-
-    console.log(`Updated course: ${this.courseName} (${this.credits} credits)`);
+    console.log(
+      `📖 วิชา: ${this.courseName} (รหัส ${this.courseId}, ${this.credits} หน่วยกิต)`,
+    );
   }
 }
-
 module.exports = Course;

@@ -1,30 +1,18 @@
+//คลาสนี้จะรับ Object จากคลาสอื่นเข้ามาทำงานร่วมกัน
+//เราส่ง Object นักเรียนและวิชาเข้ามาเก็บไว้ด้วยกัน เพื่อระบุว่าใครเรียนอะไร
+
 class Enrollment {
-  constructor(enrollmentId, student, course) {
-    this.enrollmentId = enrollmentId;
+  // รับ Object student และ course เข้ามาเชื่อมกัน
+  constructor(student, course) {
     this.student = student;
     this.course = course;
-    this.status = "pending";
-  }
-
-  register() {
-    this.status = "registered";
-  }
-
-  dropCourse() {
-    this.status = "dropped";
   }
 
   showEnrollment() {
-    const studentName =
-      typeof this.student === "string" ? this.student : this.student.name;
-    const courseName =
-      typeof this.course === "string" ? this.course : this.course.courseName;
-
-    console.log("Enrollment ID:", this.enrollmentId);
-    console.log("Student:", studentName);
-    console.log("Course:", courseName);
-    console.log("Status:", this.status);
+    // ดึง .name จาก Object student และ .courseName จาก Object course มาใช้
+    console.log(
+      `✅ การลงทะเบียน: ${this.student.name} ลงเรียนวิชา ${this.course.courseName}`,
+    );
   }
 }
-
 module.exports = Enrollment;
