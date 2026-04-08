@@ -24,4 +24,4 @@ const t1 = new Teacher(1, "Mr. John", "Math");
 
 t1.showProfile();
 t1.teachCourse("Algebra");
-t1.assignGrade("Alice", 95);
+t1.assignGrade("Ali", 95);
