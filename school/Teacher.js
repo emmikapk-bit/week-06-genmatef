@@ -1,27 +1,32 @@
-class Teacher {
-  constructor(teacherId, name, subject) {
+const Person = require("./Person");
+
+class Teacher extends Person {
+  constructor(teacherId, name, age, subject) {
+    super(name, age);
     this.teacherId = teacherId;
-    this.name = name;
     this.subject = subject;
   }
 
-  teachCourse(courseName) {
-    console.log(this.name + " is teaching " + courseName);
+  teachCourse(course) {
+    const courseName = typeof course === "string" ? course : course.courseName;
+    console.log(`${this.name} is teaching ${courseName}.`);
   }
 
-  assignGrade(studentName, score) {
-    console.log(this.name + " gives " + score + " to " + studentName);
+  assignGrade(gradeRecord, score) {
+    if (gradeRecord && typeof gradeRecord.updateScore === "function") {
+      gradeRecord.updateScore(score);
+      return;
+    }
+
+    console.log(`${this.name} assigned score ${score}.`);
   }
 
   showProfile() {
-    console.log("Teacher ID: " + this.teacherId);
-    console.log("Name: " + this.name);
-    console.log("Subject: " + this.subject);
+    console.log("Teacher ID:", this.teacherId);
+    console.log("Name:", this.name);
+    console.log("Age:", this.age);
+    console.log("Subject:", this.subject);
   }
 }
 
-const t1 = new Teacher(1, "Mr. John", "Math");
-
-t1.showProfile();
-t1.teachCourse("Algebra");
-t1.assignGrade("Ali", 95);
+module.exports = Teacher;
